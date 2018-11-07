@@ -2,7 +2,7 @@
 from __future__ import print_function
 import time
  
-def fibonacci():
+def fibonacci(callbackFunction):
     values = []
     while(True):
         if len(values) < 2:
@@ -12,13 +12,20 @@ def fibonacci():
         print(values)
         time.sleep(.25)
 
-        if values[-1] % 17 == 0:
-            return(values[-1])
+        r = callbackFunction(values[-1])
+        if (r[0]):
+            return(r[1])
 
-        if values[-1] > 10000:
-            return
- 
+def check_17(v):
+    if v % 17 == 0:
+        return (True, v)
+
+    if v > 10000:
+        return (True, None)
+
+    return (False,)
+
 if __name__ == '__main__':
-    res = fibonacci()
+    res = fibonacci(check_17)
     if (res != None):
         print(res)
