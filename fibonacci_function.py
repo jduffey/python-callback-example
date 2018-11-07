@@ -11,6 +11,10 @@ def fibonacci():
             values = [values[-1], values[-1] + values[-2]]
         print(values)
         time.sleep(.25)
+
+        if values[-1] % 17 == 0:
+            return(values[-1])
  
 if __name__ == '__main__':
-    fibonacci()
+    result = fibonacci()
+    print(result)
