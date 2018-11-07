@@ -14,7 +14,11 @@ def fibonacci():
 
         if values[-1] % 17 == 0:
             return(values[-1])
+
+        if values[-1] > 10000:
+            return
  
 if __name__ == '__main__':
-    result = fibonacci()
-    print(result)
+    res = fibonacci()
+    if (res != None):
+        print(res)
