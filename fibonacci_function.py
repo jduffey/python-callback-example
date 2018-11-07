@@ -2,7 +2,7 @@
 from __future__ import print_function
 import time
  
-def fibonacci(the_callback_function):
+def fibonacci(first_callback_function, second_callback_function):
     values = []
     while(True):
         if len(values) < 2:
@@ -18,9 +18,12 @@ def fibonacci(the_callback_function):
         in such a way that the primary and "secondary" functions
         can have their code separate.
         '''
-        r = the_callback_function(values[-1], 17)
-        if (r[0]):
-            return(r[1])
+        first_result = first_callback_function(values[-1], 17)
+        if (first_result[0]):
+            return(first_result[1])
+
+        second_result = second_callback_function(values[-1])
+        print(second_result)
 
 def check_if_div_by_x(argument, x):
     if argument % x == 0:
@@ -31,7 +34,10 @@ def check_if_div_by_x(argument, x):
 
     return (False,)
 
+def double_the_number(argument):
+    return argument * 2
+
 if __name__ == '__main__':
-    result = fibonacci(check_if_div_by_x)
+    result = fibonacci(check_if_div_by_x, double_the_number)
     if (result != None):
         print(result)
