@@ -16,16 +16,16 @@ def fibonacci(callbackFunction):
         if (r[0]):
             return(r[1])
 
-def check_17(v):
-    if v % 17 == 0:
-        return (True, v)
+def check_17(valueToAssess):
+    if valueToAssess % 17 == 0:
+        return (True, valueToAssess)
 
-    if v > 10000:
+    if valueToAssess > 10000:
         return (True, None)
 
     return (False,)
 
 if __name__ == '__main__':
-    res = fibonacci(check_17)
-    if (res != None):
-        print(res)
+    result = fibonacci(check_17)
+    if (result != None):
+        print(result)
