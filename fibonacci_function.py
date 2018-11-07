@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 from __future__ import print_function
+import time
  
 def fibonacci():
     values = []
@@ -8,6 +9,8 @@ def fibonacci():
             values.append(1)
         else:
             values = [values[-1], values[-1] + values[-2]]
+        print(values)
+        time.sleep(.25)
  
 if __name__ == '__main__':
     fibonacci()
